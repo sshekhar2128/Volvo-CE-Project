@@ -21,8 +21,7 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
     const employeeName = document.getElementById('employeeName').value;
     const employeeId = document.getElementById('employeeId').value;
     const kaizen = document.getElementById('kaizen').value;
-
-
+    const InvolvementDesc = document.getElementById('InvolvementDesc').value;
 
     const employeeRef = database.ref('employees/' + employeeName);
     employeeRef.get().then((snapshot) => {
@@ -34,12 +33,12 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
             employeeId,
             count,
             kaizen,
-
-
+            InvolvementDesc,
             
+
         };
         employeeRef.set(data);
-        alert("Thanks for your effort ;) ");
+        alert("ಸಲ್ಲಿಕೆ ದಾಖಲಿಸಲಾಗಿದೆ | Submission Recorded ");
     });
 
 
