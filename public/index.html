@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <!-- Firebase Database --> 
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Involvement</h1>
+        <form id="employeeForm">
+
+            <label for="employeeName">ಹೆಸರು | Name: </label>
+            <input type="text" id="employeeName" name="employeeName" required>
+            <br>
+
+
+            <label for="employeeId">ಸಂಖ್ಯಾ | Employee ID:</label>
+            <input type="text" id="employeeId" name="employeeId" required>
+            <br>
+            
+            <label for="kaizen">ಕೈಜೆನ್ ವಿವರಣೆ | Kaizen Description:</label>
+            <input type="text" id="kaizen" name="kaizen" required>
+            <br>
+                                                            
+            <button type="submit">ಸಲ್ಲಿಸು | Submit</button>
+        </form>
+        <a href="graph.html">View Graph</a>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
