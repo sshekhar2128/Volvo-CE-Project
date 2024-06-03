@@ -21,6 +21,8 @@ const database = firebase.database();
 document.getElementById('employeeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
+
+        
     const employeeName = document.getElementById('employeeName').value;
     const employeeId = document.getElementById('employeeId').value;
     const kaizen = document.getElementById('kaizen').value;
@@ -35,16 +37,6 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
             const selectedValue02 = formData.get('areas');
             console.log (selectedValue01) ;
             console.log (selectedValue02) ;
-
-
-         
-        
-            const form1 = document.getElementById('employeeForm');
-            const formData1 = new FormData(form);
-            const imageFile = document.getElementById('imageInput').files[0];
-            
-            
-            console.log (imageFile);
 
 
 
