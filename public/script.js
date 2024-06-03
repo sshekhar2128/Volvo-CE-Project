@@ -21,7 +21,21 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
     const employeeName = document.getElementById('employeeName').value;
     const employeeId = document.getElementById('employeeId').value;
     const kaizen = document.getElementById('kaizen').value;
-    const InvolvementDesc = document.getElementById('InvolvementDesc').value;
+    const InvolvementDesc = document.getElementById('InvolvementDesc').value;  
+   
+    const form = document.getElementById('employeeForm');
+            const formData = new FormData(form);
+            const selectedValue01 = formData.get('assembly');
+            const selectedValue02 = formData.get('areas');
+            console.log (selectedValue01) ;
+            console.log (selectedValue02) ;
+
+
+         
+
+
+   
+
 
     const employeeRef = database.ref('employees/' + employeeName);
     employeeRef.get().then((snapshot) => {
@@ -34,6 +48,8 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
             count,
             kaizen,
             InvolvementDesc,
+            selectedValue01,
+       
             
 
         };
