@@ -49,7 +49,7 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
             kaizen,
             InvolvementDesc,
             selectedValue01,
-       
+            selectedValue02,
             
 
         };
