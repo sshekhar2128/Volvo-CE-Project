@@ -15,6 +15,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
+
+
+
 document.getElementById('employeeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -23,6 +26,9 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
     const kaizen = document.getElementById('kaizen').value;
     const InvolvementDesc = document.getElementById('InvolvementDesc').value;  
    
+
+       
+
     const form = document.getElementById('employeeForm');
             const formData = new FormData(form);
             const selectedValue01 = formData.get('assembly');
@@ -32,9 +38,14 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
 
 
          
+        
+            const form1 = document.getElementById('employeeForm');
+            const formData1 = new FormData(form);
+            const imageFile = document.getElementById('imageInput').files[0];
+            
+            
+            console.log (imageFile);
 
-
-   
 
 
     const employeeRef = database.ref('employees/' + employeeName);
