@@ -28,7 +28,7 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
     const kaizen = document.getElementById('kaizen').value;
     const InvolvementDesc = document.getElementById('InvolvementDesc').value;  
    
-
+   
        
 
     const form = document.getElementById('employeeForm');
@@ -38,6 +38,15 @@ document.getElementById('employeeForm').addEventListener('submit', function (eve
             console.log (selectedValue01) ;
             console.log (selectedValue02) ;
 
+
+            const file = document.getElementById('fileInput').files[0];
+        if (file) {
+            const storageRef = firebase.storage().ref();
+            const uploadTask = storageRef.child('images/' + file.name).put(file);
+        }
+
+        
+            
 
 
     const employeeRef = database.ref('employees/' + employeeName);
