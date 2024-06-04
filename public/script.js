@@ -21,8 +21,8 @@ const database = firebase.database();
 document.getElementById('employeeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
+    
 
-        
     const employeeName = document.getElementById('employeeName').value;
     const employeeId = document.getElementById('employeeId').value;
     const kaizen = document.getElementById('kaizen').value;
