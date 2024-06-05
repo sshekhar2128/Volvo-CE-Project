@@ -25,15 +25,16 @@ const createChart = (data) => {
         submissionCounts[employeeName] = Object.keys(submissions).length;
     }
 
-    chart = new Chart(ctx, {
+    chart  = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: Object.keys(submissionCounts),
             datasets: [{
                 label: 'Number of Submissions',
                 data: Object.values(submissionCounts),
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                
+                backgroundColor: 'rgba(	255, 126, 95, 0.4)',
+                borderColor: 'rgba(255, 126, 95, 1)',
                 borderWidth: 1
             }]
         },

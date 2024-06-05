@@ -38,10 +38,20 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
             console.log('Upload successful!');
             const messageDiv = document.getElementById('message');
             messageDiv.textContent = 'Image uploaded successfully!';
-            messageDiv.style.color = 'green';
+            messageDiv.style.color = 'orange';
         });
     }
 });
+
+// Assume progress is updated dynamically elsewhere in your code
+var progress = 100; // Set progress to 100% when upload is complete
+
+// Check if progress is 100%
+if (progress === 100) {
+    // Add gradient class to progress bar
+    document.getElementById("progressBar").classList.add("gradient");
+}
+
 
 document.getElementById('employeeForm').addEventListener('submit', function(event) {
     event.preventDefault();
