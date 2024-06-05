@@ -49,13 +49,10 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 
     xhr.addEventListener('load', function(event) {
         var messageDiv = document.getElementById('message');
-        if (xhr.status == 200) {
+        if (xhr.status == 100) {
             messageDiv.textContent = 'Image uploaded successfully!';
             messageDiv.style.color = 'green';
-        } else {
-            messageDiv.textContent = 'Image upload failed.';
-            messageDiv.style.color = 'red';
-        }
+        } 
     });
 
     xhr.addEventListener('error', function(event) {
