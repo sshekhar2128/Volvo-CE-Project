@@ -16,7 +16,12 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 
+document.getElementById('employeeForm').addEventListener('submit', function(event) {
+    var inputElement = document.getElementById('employeeName');
+    inputElement.value = inputElement.value.toUpperCase();
+});
 
+console.log(employeeName) ;
 
 document.getElementById('employeeForm').addEventListener('submit', function (event) {
     event.preventDefault();
