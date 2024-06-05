@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
-import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
+import { getStorage, ref as storageRef, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -18,6 +18,31 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const storage = getStorage(app);
 
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const fileRef = storageRef(storage, 'images/' + file.name);
+        const uploadTask = uploadBytesResumable(fileRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = Math.round(progress) + '%';
+        }, (error) => {
+            console.error('Upload failed:', error);
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = 'Upload failed: ' + error.message;
+            messageDiv.style.color = 'red';
+        }, () => {
+            console.log('Upload successful!');
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = 'Image uploaded successfully!';
+            messageDiv.style.color = 'green';
+        });
+    }
+});
+
 document.getElementById('employeeForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -31,46 +56,6 @@ document.getElementById('employeeForm').addEventListener('submit', function(even
     const selectedValue01 = formData.get('assembly');
     const selectedValue02 = formData.get('areas');
 
-
-
-    const fileInput = document.getElementById('fileInput');
-    const progressBar = document.getElementById('uploadProgress');
-    
-    fileInput.addEventListener('change', () => {
-        const file = fileInput.files[0];
-        if (file) {
-            const storage = firebase.storage(); // initialize your Firebase storage
-            const storageRef = storage.ref('images/' + file.name);
-            
-            const uploadTask = storageRef.put(file);
-            
-            // Listen for state changes, errors, and completion of the upload.
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
-                    progressBar.value = progress;
-                    switch (snapshot.state) {
-                        case firebase.storage.TaskState.PAUSED: // or 'paused'
-                            console.log('Upload is paused');
-                            break;
-                        case firebase.storage.TaskState.RUNNING: // or 'running'
-                            console.log('Upload is running');
-                            break;
-                    }
-                }, 
-                (error) => {
-                    // Handle unsuccessful uploads
-                    console.error('Upload failed:', error);
-                }, 
-                () => {
-                    // Handle successful uploads on complete
-                    console.log('Upload complete!');
-                }
-            );
-        }
-    });
     const employeeRef = ref(database, 'employees/' + employeeName);
     get(employeeRef).then((snapshot) => {
         let count = 1;
@@ -89,7 +74,7 @@ document.getElementById('employeeForm').addEventListener('submit', function(even
 
         const newEntryRef = ref(database, `employees/${employeeName}/${count}`);
         set(newEntryRef, newData).then(() => {
-            alert("ಸಲ್ಲಿಕೆ ದಾಖಲಿಸಲಾಗಿದೆ | Submission Recorded");
+            alert("ಸಲ್ಲಿಕೆ ದಾಖಲಾಗಿದೆ | Submission Recorded");
         });
     });
 

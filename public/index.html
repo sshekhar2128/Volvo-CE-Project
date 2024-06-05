@@ -10,123 +10,85 @@
     <!-- Firebase Database -->  
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 
-      <!-- Firebase Storage -->
-      <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
-
+    <!-- Firebase Storage -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
 </head>
 <body>
-
-    
-
     <div class="container">
         <h1>Employee Involvement</h1>
         <form id="employeeForm">
-        
-            
-
-           
             <label for="employeeName">1. Name: </label>
             <input type="text" id="employeeName" style="text-transform: uppercase" name="employeeName" required>
-            
             <br>
 
-          
-            
             <label for="employeeId">2. Employee ID:</label>
             <input type="text" id="employeeId" name="employeeId" required>
-            
             <br>
-            
-
             
             <label for="kaizen">3. Kaizen Description:</label>
-            <input type="text" id="kaizen" name="kaizen" >
-            
+            <input type="text" id="kaizen" name="kaizen">
             <br>
 
-            
             <label for="InvolvementDesc">4. Involvement Description:</label>
-            <input type="text" id="InvolvementDesc" name="InvolvementDesc" >
-
+            <input type="text" id="InvolvementDesc" name="InvolvementDesc">
             <br>
 
-            <p>5. Assembly Line ? </p>
-        <input type="radio" id="exc" name="assembly" value="EXC">
-        <label for="exc">EXC</label>
-        
-        <input type="radio" id="rm" name="assembly" value="RM">
-        <label for="rm">RM</label>
-        
-        <input type="radio" id="pt" name="assembly" value="PT">
-        <label for="pt">PT</label>
-        
-        <input type="radio" id="paver" name="assembly" value="PAVER">
-        <label for="paver">PAVER</label><br>
-                                              
+            <p>5. Assembly Line?</p>
+            <input type="radio" id="exc" name="assembly" value="EXC">
+            <label for="exc">EXC</label>
+            <input type="radio" id="rm" name="assembly" value="RM">
+            <label for="rm">RM</label>
+            <input type="radio" id="pt" name="assembly" value="PT">
+            <label for="pt">PT</label>
+            <input type="radio" id="paver" name="assembly" value="PAVER">
+            <label for="paver">PAVER</label>
             <br>
 
-            <p>6. Assembly Areas ? </p>
-        <input type="radio" id="s1" name="areas" value="S1">
-        <label for="s1">S1</label>
-
-        <input type="radio" id="s2" name="areas" value="S2">
-        <label for="s2">S2</label>
-        
-        <input type="radio" id="s3" name="areas" value="S3">
-        <label for="s3">S3</label>
-
-        <input type="radio" id="s4" name="areas" value="S4">
-        <label for="s4">S4</label>
-
-        <input type="radio" id="s5" name="areas" value="S5">
-        <label for="s5">S5</label>
-
-        <input type="radio" id="s6" name="areas" value="S6">
-        <label for="s6">S6</label> <br>
-
-        <input type="radio" id="s7" name="areas" value="S7">
-        <label for="s7">S7</label>
-
-        <input type="radio" id="s8" name="areas" value="S8">
-        <label for="s8">S8</label>
-
-        <input type="radio" id="s9" name="areas" value="S9">
-        <label for="s9">S9</label>
-
-        <input type="radio" id="tdi" name="areas" value="TDI">
-        <label for="tdi">TDI</label>
-        
-        <input type="radio" id="entry" name="areas" value="EntryGate">
-        <label for="entry">Entry Gate</label> <br>
-        
-        <input type="radio" id="runtestarea" name="areas" value="RunTestArea">
-        <label for="runtestarea">Run Test Area</label>
-
-        <input type="radio" id="pps" name="areas" value="PPS">
-        <label for="pps">PPS </label>
-
-        <input type="radio" id="warehouse" name="areas" value="WarehouseArea">
-        <label for="warehouse">Warehouse Area </label><br>
-                                              
+            <p>6. Assembly Areas?</p>
+            <input type="radio" id="s1" name="areas" value="S1">
+            <label for="s1">S1</label>
+            <input type="radio" id="s2" name="areas" value="S2">
+            <label for="s2">S2</label>
+            <input type="radio" id="s3" name="areas" value="S3">
+            <label for="s3">S3</label>
+            <input type="radio" id="s4" name="areas" value="S4">
+            <label for="s4">S4</label>
+            <input type="radio" id="s5" name="areas" value="S5">
+            <label for="s5">S5</label>
+            <input type="radio" id="s6" name="areas" value="S6">
+            <label for="s6">S6</label>
+            <br>
+            <input type="radio" id="s7" name="areas" value="S7">
+            <label for="s7">S7</label>
+            <input type="radio" id="s8" name="areas" value="S8">
+            <label for="s8">S8</label>
+            <input type="radio" id="s9" name="areas" value="S9">
+            <label for="s9">S9</label>
+            <input type="radio" id="tdi" name="areas" value="TDI">
+            <label for="tdi">TDI</label>
+            <input type="radio" id="entry" name="areas" value="EntryGate">
+            <label for="entry">Entry Gate</label>
+            <br>
+            <input type="radio" id="runtestarea" name="areas" value="RunTestArea">
+            <label for="runtestarea">Run Test Area</label>
+            <input type="radio" id="pps" name="areas" value="PPS">
+            <label for="pps">PPS</label>
+            <input type="radio" id="warehouse" name="areas" value="WarehouseArea">
+            <label for="warehouse">Warehouse Area</label>
             <br>
 
-            <input type="file" id="fileInput" required />
-            <label for="fileInput">Upload Image </label><br>
-            <label for="fileInput"> Upload relevant Image </label><br>
-            <progress id="uploadProgress" value="0" max="100"></progress>
-
-            
-           
+            <input type="file" id="fileInput" required>
             <br>
-        <button type="submit">ಸಲ್ಲಿಸು | Submit</button>
-        <a href="graph.html">View Graph</a>  
-                   
-        </form>    
-                
+            <div id="progress">
+                <div id="progressBar">0%</div>
+            </div>
+            <div id="message"></div>
+            <br>
+            <button type="submit">ಸಲ್ಲಿಸು | Submit</button>
+            <a href="graph.html">View Graph</a>
+        </form>
     </div>
 
-
-   
     <script type="module" src="script.js"></script>
 </body>
 </html>
