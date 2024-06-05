@@ -39,6 +39,16 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
             const messageDiv = document.getElementById('message');
             messageDiv.textContent = 'Image uploaded successfully!';
             messageDiv.style.color = 'orange';
+
+
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                // Save the download URL to the database or use it as needed
+                console.log('Download URL:', downloadURL);
+            }).catch((error) => {
+                console.error('Error getting download URL:', error);
+            });
+
+
         });
     }
 });
