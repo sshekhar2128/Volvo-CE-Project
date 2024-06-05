@@ -22,15 +22,15 @@ h1 {
 }
 #progressBar {
     width: 0%;
-    height: 20px;
-    background-color: #007bff;
+    height: 30px;
+    background-color: #4caf50;
     text-align: center;
     color: white;
-    line-height: 20px;
+    line-height: 30px;
 }
 #message {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 
