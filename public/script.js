@@ -23,6 +23,50 @@ document.getElementById('employeeForm').addEventListener('submit', function(even
 
 console.log(employeeName) ;
 
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    var fileInput = event.target;
+    var file = fileInput.files[0];
+    if (!file) {
+        alert("Please select a file.");
+        return;
+    }
+
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/upload', true);
+
+    xhr.upload.addEventListener('progress', function(event) {
+        if (event.lengthComputable) {
+            var percentComplete = (event.loaded / event.total) * 100;
+            var progressBar = document.getElementById('progressBar');
+            progressBar.style.width = percentComplete + '%';
+            progressBar.textContent = Math.round(percentComplete) + '%';
+        }
+    });
+
+    xhr.addEventListener('load', function(event) {
+        var messageDiv = document.getElementById('message');
+        if (xhr.status == 200) {
+            messageDiv.textContent = 'Image uploaded successfully!';
+            messageDiv.style.color = 'green';
+        } else {
+            messageDiv.textContent = 'Image upload failed.';
+            messageDiv.style.color = 'red';
+        }
+    });
+
+    xhr.addEventListener('error', function(event) {
+        var messageDiv = document.getElementById('message');
+        messageDiv.textContent = 'An error occurred while uploading the image.';
+        messageDiv.style.color = 'red';
+    });
+
+    xhr.send(formData);
+});
+
 document.getElementById('employeeForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
