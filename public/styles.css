@@ -216,19 +216,6 @@ button:hover {
 }
 
 
-/* Container Styling */
-.container01 {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px; /* Adjusted max-width */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideIn 1s forwards 0.5s;
-}
 
 .container:hover {
     transform: translateY(-5px);
