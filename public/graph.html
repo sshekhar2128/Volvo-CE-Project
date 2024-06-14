@@ -10,6 +10,7 @@
     <!-- Firebase Database -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 
 
@@ -19,12 +20,16 @@
             display: flex;
             height: 100%;
             width: 15%;
+            
         }
 
         .container02 {
             display: flex;
             height: 98%;
             width: 100%;
+            
+           
+            
         }
         .sidebar {
             font-size: x-small;
@@ -41,7 +46,7 @@
         .qwerty {
            display: flex;
            height: 10%;
-           width: 30%;
+           width: 40%;
 
         }
 
@@ -55,6 +60,8 @@
         .employeeChart {
             height: 100%;
             width: 100%;
+            
+            
         }
 
 
@@ -77,11 +84,12 @@
 
 
 <div class="container02">   
-    <canvas id="employeeChart"></canvas>
+    <canvas id="employeeChart" >
+        
+    </canvas>
 </div>
-    
-   
-
     <script src="graph.js"></script>
+
+    
 </body>
 </html>
