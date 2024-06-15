@@ -105,6 +105,11 @@
             50% { opacity: 0; }
         }
 
+        .blinking-text {
+            animation: blink 1.5s linear infinite;
+            color: #007bff; /* Change color to match "Scan to fill the form" text */
+        }
+
         canvas {
             width: 100% !important;
             height: auto !important;
@@ -129,7 +134,7 @@
     </div>
     <div class="bar-chart-container">
         <canvas id="employeeChart"></canvas>
-        <div style="text-align: center; font-weight: bold; margin-top: 10px;">March 2024 Onwards</div>
+        <div style="text-align: center; font-weight: bold; margin-top: 10px;" class="blinking-text">March 2024 Onwards</div>
     </div>
     <script src="graph.js"></script>
 </body>

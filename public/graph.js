@@ -27,8 +27,6 @@ const createBarChart = (data) => {
         submissionCounts[employeeName] = Object.keys(submissions).length;
     }
 
-    const color = 'rgba(100, 149, 237, 0.7)'; // Cornflower blue
-
     barChart = new Chart(ctxBar, {
         type: 'bar',
         data: {
@@ -36,8 +34,8 @@ const createBarChart = (data) => {
             datasets: [{
                 label: 'Number of Submissions',
                 data: Object.values(submissionCounts),
-                backgroundColor: color,
-                borderColor: color,
+                backgroundColor: 'rgba(100, 149, 237, 0.7)', // Cornflower blue
+                borderColor: 'black', // Black border color
                 borderWidth: 1,
                 borderRadius: 5,
                 hoverBackgroundColor: 'rgba(100, 149, 237, 0.9)',
@@ -170,8 +168,14 @@ const createPieChart = (data) => {
                         weight: 'bold',
                         size: 14
                     },
-                    formatter: (value) => {
-                        return value;
+                    formatter: (value, context) => {
+                        let sum = 0;
+                        let dataArr = context.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        return percentage;
                     }
                 }
             }
